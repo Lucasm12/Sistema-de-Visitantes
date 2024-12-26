@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Visitantes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fas fa-church"></i>
+                <span>Gestão de Visitantes</span>
+            </div>
+            <div class="user-info">
+                <i class="fas fa-user-circle"></i>
+                <span id="nomeUsuario"></span>
+            </div>
+            <nav>
+                <button class="nav-btn active" onclick="mostrarSecao('cadastro')">
+                    <i class="fas fa-user-plus"></i> Novo Cadastro
+                </button>
+                <button class="nav-btn" onclick="mostrarSecao('lista')">
+                    <i class="fas fa-list"></i> Lista de Visitantes
+                </button>
+                <button class="logout-btn" onclick="fazerLogout()">
+                    <i class="fas fa-sign-out-alt"></i> Sair
+                </button>
+            </nav>
+        </div>
+
+        <!-- Conteúdo Principal -->
+        <main class="content">
+            <section id="cadastro" class="secao-cadastro">
+                <div class="card">
+                    <h2><i class="fas fa-user-plus"></i> Cadastro de Visitante</h2>
+                    <form id="formVisitante" class="form-cadastro">
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="nome">Nome do Visitante</label>
+                                <input type="text" id="nome" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="evangelico">É Evangélico?</label>
+                                <select id="evangelico" required>
+                                    <option value="">Selecione</option>
+                                    <option value="sim">Sim</option>
+                                    <option value="nao">Não</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="igreja">Nome da Igreja</label>
+                                <input type="text" id="igreja" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="dataVisita">Data da Visita</label>
+                                <input type="date" id="dataVisita" required>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="acompanhantes">Acompanhantes</label>
+                            <textarea id="acompanhantes"></textarea>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="observacoes">Observações</label>
+                            <textarea id="observacoes"></textarea>
+                        </div>
+
+                        <button type="submit" class="save-btn">
+                            <i class="fas fa-save"></i> Salvar Visitante
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <section id="lista" class="secao-lista hidden">
+                <div class="card">
+                    <h2><i class="fas fa-list"></i> Visitantes Cadastrados</h2>
+                    <div class="filtro-container">
+                        <div class="filtro-data">
+                            <div class="input-group">
+                                <label for="dataInicio">Data Inicial</label>
+                                <input type="date" id="dataInicio">
+                            </div>
+                            <div class="input-group">
+                                <label for="dataFim">Data Final</label>
+                                <input type="date" id="dataFim">
+                            </div>
+                            <button onclick="filtrarVisitantes()" class="filtro-btn">
+                                <i class="fas fa-filter"></i> Filtrar
+                            </button>
+                            <button onclick="limparFiltro()" class="limpar-btn">
+                                <i class="fas fa-times"></i> Limpar Filtro
+                            </button>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table id="tabelaVisitantes">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Evangélico</th>
+                                    <th>Igreja</th>
+                                    <th>Data</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dados serão inseridos via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="convidados.js"></script>
+</body>
+</html> 
