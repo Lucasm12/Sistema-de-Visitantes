@@ -103,6 +103,7 @@ main {
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    transition: margin-left 0.3s ease-in-out;
 }
 
 section {
@@ -187,4 +188,110 @@ textarea {
     .card {
         margin: 1rem;
     }
+}
+
+.alerta-erro {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #fff;
+    border-left: 4px solid #dc2626;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 4px;
+    padding: 16px;
+    z-index: 9999;
+    transform: translateX(120%);
+    transition: transform 0.3s ease-in-out;
+    min-width: 300px;
+}
+
+.alerta-erro.mostrar {
+    transform: translateX(0);
+}
+
+.alerta-conteudo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.alerta-conteudo i {
+    color: #dc2626;
+    font-size: 20px;
+}
+
+.alerta-conteudo span {
+    color: #1f2937;
+    font-size: 14px;
+    font-weight: 500;
+    flex-grow: 1;
+}
+
+.fechar-alerta {
+    background: none;
+    border: none;
+    color: #6b7280;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 4px;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.fechar-alerta:hover {
+    color: #1f2937;
+}
+
+/* Adicione estas classes para controlar a transição */
+.sidebar-content {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.sidebar-content.hidden {
+    display: none;
+}
+
+.sidebar-content.opacity-0 {
+    opacity: 0;
+}
+
+/* Mantenha os ícones centralizados quando a sidebar estiver recolhida */
+#sidebar.w-16 .nav-btn {
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+#sidebar.w-16 .nav-btn i {
+    margin-right: 0;
 } 
+
+    .sidebar {
+        background-color: #f8f9fa; /* Cor de fundo clara */
+        padding: 20px; /* Espaçamento interno */
+        border-right: 1px solid #dee2e6; /* Borda à direita */
+        height: 100vh; /* Altura total da tela */
+    }
+
+    .sidebar h1 {
+        font-family: 'Arial', sans-serif; /* Fonte moderna */
+        font-size: 24px; /* Tamanho da fonte */
+        color: #343a40; /* Cor do texto */
+        margin-bottom: 20px; /* Espaço abaixo do título */
+    }
+
+    .sidebar a {
+        display: block; /* Faz com que os links ocupem toda a largura */
+        padding: 10px; /* Espaçamento interno dos links */
+        color: #007bff; /* Cor do texto dos links */
+        text-decoration: none; /* Remove sublinhado */
+        transition: background-color 0.3s; /* Transição suave para o hover */
+    }
+
+    .sidebar a:hover {
+        background-color: #e9ecef; /* Cor de fundo ao passar o mouse */
+    }
+
+    .sidebar .logout {
+        margin-top: auto; /* Empurra o botão Sair para o fundo */
+        color: #dc3545; /* Cor do texto para Sair */
+    }
